@@ -11,25 +11,25 @@ It's based on their Android SDK and uses a different syntax to display the "Sing
 
 ## Properties
 
--   key (string): your license key
--   symbologies (array:int): see constants
--   scanIntention (int): see constants
--   vibrate (boolean): vibrate on scan
--   torch (boolean): show torch icon
--   cacheTime (int): time in ms how long a code is cached before rescanning it
+-   <b>key (string):</b> your license key
+-   <b>symbologies (array:</b>int): see constants
+-   <b>scanIntention (int):</b> see constants
+-   <b>vibrate (boolean):</b> vibrate on scan
+-   <b>torch (boolean):</b> show torch icon
+-   <b>cacheTime (int):</b> time in ms how long a code is cached before rescanning it
 
 ## Events
 
--   scan: data, symbology, isGs1DataCarrier
+-   <b>scan:</b> data, symbology, isGs1DataCarrier
 
 ## Constants
 
-Symbologies:
+<b>Symbologies:</b>
 
 -   SCANDIT.EAN13UPCA
 -   SCANDIT.Code128
 
-Scan Intention:
+<b>Scan Intention:</b>
 
 -   SCANDIT.SMART
 -   SCANDIT.MANUAL
@@ -47,7 +47,7 @@ import SCANDIT from 'ti.scandit';
 
 const scanditView = SCANDIT.createScandit({
 	height: 400,
-  key: "...",
+	key: "...",
 	symbologies: [
 		SCANDIT.EAN13UPCA,
 		SCANDIT.Code128,
