@@ -28,6 +28,10 @@ It's based on their Android SDK and uses a different syntax to display the "Sing
 
 -   SCANDIT.EAN13UPCA
 -   SCANDIT.Code128
+-   SCANDIT.Code39
+-   SCANDIT.QR
+-   SCANDIT.EAN8
+-   SCANDIT.UPCE
 
 <b>Scan Intention:</b>
 
@@ -58,7 +62,7 @@ const scanditView = SCANDIT.createScandit({
 	cacheTime: 500
 });
 
-win.add([scanditView,btn,label});
+win.add([scanditView,btn,label]);
 
 scanditView.addEventListener("scan", function(e) {
 	console.log("data", e.data)

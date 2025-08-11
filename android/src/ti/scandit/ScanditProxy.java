@@ -22,6 +22,9 @@ import com.scandit.datacapture.barcode.ui.overlay.BarcodeCaptureOverlay;
 import com.scandit.datacapture.core.capture.DataCaptureContext;
 import com.scandit.datacapture.core.common.feedback.Feedback;
 import com.scandit.datacapture.core.common.feedback.Vibration;
+import com.scandit.datacapture.core.common.geometry.FloatWithUnit;
+import com.scandit.datacapture.core.common.geometry.MeasureUnit;
+import com.scandit.datacapture.core.common.geometry.PointWithUnit;
 import com.scandit.datacapture.core.data.FrameData;
 import com.scandit.datacapture.core.source.Camera;
 import com.scandit.datacapture.core.source.CameraSettings;
@@ -31,6 +34,7 @@ import com.scandit.datacapture.core.time.TimeInterval;
 import com.scandit.datacapture.core.ui.DataCaptureView;
 import com.scandit.datacapture.core.ui.control.Control;
 import com.scandit.datacapture.core.ui.control.TorchSwitchControl;
+import com.scandit.datacapture.core.ui.viewfinder.LaserlineViewfinder;
 
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.annotations.Kroll;
@@ -122,6 +126,14 @@ public class ScanditProxy extends TiViewProxy {
                 } else if (symbol == TiScanditModule.EAN13UPCA) {
                     settings.enableSymbology(Symbology.EAN13_UPCA, true);
                     settings.getSymbologySettings(Symbology.EAN13_UPCA).setExtensionEnabled("remove_leading_upca_zero", true);
+                } else if (symbol == TiScanditModule.Code39) {
+                    settings.enableSymbology(Symbology.CODE39, true);
+                } else if (symbol == TiScanditModule.QR) {
+                    settings.enableSymbology(Symbology.QR, true);
+                } else if (symbol == TiScanditModule.EAN8) {
+                    settings.enableSymbology(Symbology.EAN8, true);
+                } else if (symbol == TiScanditModule.UPCE) {
+                    settings.enableSymbology(Symbology.UPCE, true);
                 }
             }
 
@@ -168,10 +180,18 @@ public class ScanditProxy extends TiViewProxy {
                         KrollDict kd = new KrollDict();
 
                         int symbol = -1;
-                        if (lastScannedBarcode.getSymbology() == Symbology.CODE128)
+                        if (lastScannedBarcode.getSymbology() == Symbology.CODE128) {
                             symbol = TiScanditModule.Code128;
-                        if (lastScannedBarcode.getSymbology() == Symbology.EAN13_UPCA) {
+                        } else if (lastScannedBarcode.getSymbology() == Symbology.EAN13_UPCA) {
                             symbol = TiScanditModule.EAN13UPCA;
+                        } else if (lastScannedBarcode.getSymbology() == Symbology.CODE39) {
+                            symbol = TiScanditModule.Code39;
+                        } else if (lastScannedBarcode.getSymbology() == Symbology.QR) {
+                            symbol = TiScanditModule.QR;
+                        } else if (lastScannedBarcode.getSymbology() == Symbology.EAN8) {
+                            symbol = TiScanditModule.EAN8;
+                        } else if (lastScannedBarcode.getSymbology() == Symbology.UPCE) {
+                            symbol = TiScanditModule.UPCE;
                         }
 
                         kd.put("data", code);

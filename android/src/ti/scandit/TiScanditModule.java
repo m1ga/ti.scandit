@@ -21,10 +21,12 @@ public class TiScanditModule extends KrollModule {
     // Standard Debugging variables
 
 
-    @Kroll.constant
-    public static final int EAN13UPCA = 0;
-    @Kroll.constant
-    public static final int Code128 = 1;
+    @Kroll.constant public static final int EAN13UPCA = 0;
+    @Kroll.constant public static final int Code128 = 1;
+    @Kroll.constant public static final int Code39 = 2;
+    @Kroll.constant public static final int QR = 3;
+    @Kroll.constant public static final int EAN8 = 4;
+    @Kroll.constant public static final int UPCE = 5;
 
     @Kroll.constant
     public static final int OFF = 0;
