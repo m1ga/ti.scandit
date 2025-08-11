@@ -15,13 +15,6 @@ name: ti.scandit
 moduleid: ti.scandit
 guid: 70757bf5-d740-4f6b-af19-314724e74087
 platform: android
-#
-# Classpaths and plugins are used for android packages that requires them
-# to use them you have to add your classpaths and plugins comma separated
-# Ex:
-# classpaths: classpath1,classpath2
-# plugins: plugin1,plugin2
-#
 classpaths:
 plugins:
-minsdk: 12.8.0.GA
+minsdk: 12.5.0
