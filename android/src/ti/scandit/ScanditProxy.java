@@ -194,6 +194,7 @@ public class ScanditProxy extends TiViewProxy {
                             symbol = TiScanditModule.UPCE;
                         }
 
+                        kd.put("barcode", code);
                         kd.put("data", code);
                         kd.put("symbology", symbol);
                         kd.put("isGs1DataCarrier", lastScannedBarcode.isGs1DataCarrier());
@@ -216,6 +217,8 @@ public class ScanditProxy extends TiViewProxy {
 
                 }
             });
+            barcodeCapture.setEnabled(true);
+            camera.switchToDesiredState(FrameSourceState.ON);
         }
 
         @Override
