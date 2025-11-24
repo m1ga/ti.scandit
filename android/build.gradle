@@ -1,5 +1,5 @@
 
 dependencies {
-  implementation "com.scandit.datacapture:core:7.4.0"
-  implementation "com.scandit.datacapture:barcode:7.4.0"
+  implementation "com.scandit.datacapture:core:7.6.5"
+  implementation "com.scandit.datacapture:barcode:7.6.5"
 }
